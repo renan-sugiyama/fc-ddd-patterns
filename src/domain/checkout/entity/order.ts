@@ -43,6 +43,11 @@ export default class Order {
     return true;
   }
 
+  updateItem(item: OrderItem): void {
+    var index = this._items.findIndex(x => x.id === item.id)
+    this._items[index] = item
+  }
+
   total(): number {
     return this._items.reduce((acc, item) => acc + item.total(), 0);
   }
